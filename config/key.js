@@ -1,0 +1,4 @@
+module.exports = {
+  mongoURI:
+    "mongodb+srv://user:Gayche6410@cluster0.pntza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+};
