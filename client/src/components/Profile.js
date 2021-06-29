@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useEffect } from "react";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -16,6 +16,9 @@ function Profile({
   notadmins,
   setAlert,
 }) {
+    useEffect(() => {
+      setAlert(`Welcome ${user.user.user}`, "green");
+    }, []);
   const onClick = async () => {
     await logout();
     await notcurrent();

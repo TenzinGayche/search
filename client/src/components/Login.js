@@ -27,11 +27,14 @@ function Login({
   const { user, password } = formData;
   const onClick = async () => {
     await login({ user, password });
-    await setAlert(`Welcome ${users.user.user}`,"green");
+   
 
     console.log(users);
   };
-  if (users.user.user === "Amala" && users.isAuthenticated === true) {
+  if (
+    (users.user.user === "Amala" && users.isAuthenticated === true) ||
+    (users.user.user === "Pala" && users.isAuthenticated === true)
+  ) {
     console.log("hiii");
     isadmins();
     currentfail();
@@ -40,6 +43,7 @@ function Login({
   }
 
   if (users.isAuthenticated) {
+     
     return <Redirect to="/profile" />;
   }
 
