@@ -39,7 +39,7 @@ export const login = (data) => async (dispatch) => {
     console.log(data);
 
     const res = await axios.post(
-      "http://localhost:5000/api/users/auth",
+      "/api/users/auth",
       data,
       config
     );
@@ -94,7 +94,7 @@ export const addtask = (id,data) => async (dispatch) => {
     };
 console.log(id);
     const res = await axios.put(
-      `http://localhost:5000/api/users/tasks/${id}`,
+      `/api/users/tasks/${id}`,
       data,
       config
     );

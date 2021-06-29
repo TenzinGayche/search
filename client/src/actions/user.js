@@ -20,7 +20,7 @@ export const loadUser = () => async (dispatch) => {
     };
 
 
-    const res = await axios.get("http://localhost:5000/api/users", {}, config);
+    const res = await axios.get("/api/users", {}, config);
     console.log("actions");
     dispatch({
       type: LOAD_USER,

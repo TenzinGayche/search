@@ -21,7 +21,7 @@ export const loadtask = (id) => async (dispatch) => {
     };
    
     const res = await axios.get(
-      `http://localhost:5000/api/users/tasks/${id}`,
+      `/api/users/tasks/${id}`,
       {},
       config
     );
@@ -46,7 +46,7 @@ export const deletetasks = (id, task) => async (dispatch) => {
     };
 
     const res = await axios.delete(
-      `http://localhost:5000/api/users/${id}/task/${task}`,
+      `/api/users/${id}/task/${task}`,
       {},
       config
     );
@@ -66,7 +66,7 @@ export const iscompleted = (id, comment) => async (dispatch) => {
     };
 
     const res = await axios.put(
-      `http://localhost:5000/api/users/${id}/task/${comment}`,
+      `/api/users/${id}/task/${comment}`,
       {},
       config
     );
