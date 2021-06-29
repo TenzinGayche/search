@@ -33,8 +33,8 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
   ];
   var [state, setstate] = useState(month);
   const [date, setdate] = useState(datet);
- var completed=1;
-  var incompleted=1;
+ var completed=0;
+  var incompleted=0;
   
  
   
