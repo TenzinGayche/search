@@ -1,0 +1,377 @@
+* {
+  padding: 0rem;
+  margin: 0rem;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+}
+.gray {
+  color: #616161;
+  background: #616161;
+}
+.blue {
+  color: #4267b2;
+}
+.red {
+  color: #f80101;
+  text-decoration: none;
+}
+.alert{
+    margin: 5rem 1rem;
+    font-family: "Raleway", sans-serif;
+
+    color: white;
+    background: #f80101;
+    padding: .2rem 1rem  ;
+      font-size: .6rem;
+      
+    
+}
+.white {
+  color: white;
+}
+.yellow {
+  color: #f4b400;
+}
+.green {
+  color: #1aa260;
+}
+body {
+  text-decoration: none;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background: #000;
+}
+.btn {
+  color: white;
+}
+input {
+  color: aliceblue;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.2rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #4267b2;
+  background: black;
+}
+.login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 14rem;
+  color: #726565;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.password {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0.23rem;
+  width: auto;
+}
+.password i {
+  text-decoration: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0.3rem;
+  padding-top: 1rem;
+  color: #726565;
+  font-size: 1.5rem;
+}
+.profile {
+  color: #fff;
+  padding: 2rem;
+  border-radius: 3%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  font-size: 0.6rem;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.profile .tasks-box {
+  background-color: #202020;
+  padding: 2rem;
+  border-radius: 8%;
+  text-decoration: none;
+}
+.profile h1 {
+  padding: 0.5rem;
+  margin: 0.2rem;
+}
+.profile i {
+  margin: 2rem;
+  font-size: 2rem;
+}
+.task-container {
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 10rem;
+  padding: 2rem;
+}
+.width {
+  width: 70%;
+}
+.tasks-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  height: 100%;
+  margin: 1rem;
+}
+.tasks-input .btn a {
+  margin: 0.2rem;
+  text-decoration: none;
+}
+.tasks-input .input-task {
+  background: #000;
+  color: white;
+  border: none;
+  text-align: left;
+  outline: none;
+  border-bottom: 1px solid #4267b2;
+  width: 100%;
+  margin: 0.2rem;
+  font-size: 1rem;
+}
+.tasks-input .input-task:hover {
+  border-bottom: 1px solid #677ec9;
+}
+.progress-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10rem;
+}
+.progress-container .tittle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-style: bold;
+}
+.progress-container h1 {
+  font-size: 1rem;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
+  justify-content: center !important;
+}
+.month {
+  margin-top: -4rem;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.progress {
+  margin-top: 12rem;
+}
+.progress-tasks-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  height: 100%;
+  margin: 1rem 1rem 0rem 1rem;
+}
+.progress-tasks-input .btn a {
+  margin: 0.2rem;
+  text-decoration: none;
+}
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 10rem;
+  color: #726565;
+}
+.users {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+.users .add i {
+  color: #726565;
+  font-size: 100px;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: auto;
+  margin-top: -2rem;
+}
+.users-box {
+  margin: 1rem;
+}
+.users-box img {
+  width: 130px;
+  border-radius: 8%;
+}
+.users-box h1 {
+  color: #726565;
+  text-decoration: none;
+}
+.calender {
+  margin: 3rem;
+  padding: 1rem;
+  background: #302f2f;
+  margin-top: -2rem;
+  border-radius: 3%;
+  color: #ecf0f1;
+}
+.calender ul {
+  margin: 0rem;
+  padding: 0rem;
+}
+.calender li {
+  font-size: 0.9rem;
+  float: left;
+  display: block;
+  width: 14.2857%;
+  text-align: center;
+  list-style-type: none;
+}
+.calender li:nth-child(n + 1):nth-child(-n + 7) {
+  color: white !important;
+  background: #e67e22;
+}
+.calender li .active,
+.calender li:hover {
+  border-radius: 5px;
+  background-color: #4267b2;
+}
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.4rem 0.45rem;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  background: #000;
+  z-index: 1;
+  top: 0;
+}
+.navbar img {
+  width: 30px;
+  border-radius: 100%;
+}
+.navbar a {
+  color: #fafafa;
+  padding: 0.45rem;
+  text-decoration: none;
+  margin: 0 0.2rem;
+}
+.navbar a:hover {
+  color: #f80101;
+}
+.navbar-list {
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+  -ms-flex-pack: right;
+  justify-content: right;
+  list-style: none;
+}
+.navbar-items {
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+.navbar .large a {
+  color: #f80101;
+  font-weight: bold;
+}
