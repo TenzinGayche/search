@@ -46,7 +46,7 @@ function Profile({
         <div class="tasks-box " onClick={() => onClick()}>
           <i class="fas fa-sign-out-alt"></i>
 
-          <h1 class="white"> {isadmin ? "Back" : `Login`}</h1>
+          <h1 class="white"> {isadmin ? "Back" : `Logout`}</h1>
         </div>
         <div
           class={`tasks-box  ${isadmin ? "" : `inactive`}`}
