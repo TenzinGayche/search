@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
-import { currentuser, login, addtask, currentfail,  } from "../actions/current";
+import { currentuser, login, addtask, currentfail } from "../actions/current";
 import { deletetasks, loadtask, iscompleted } from "../actions/task";
 import { loadUser } from "../actions/user";
 import Spinner from "./Spinner";
@@ -42,6 +42,7 @@ function Alltask({
   const { tasks, date } = formData;
 
   const onClick = async () => {
+    setAlert("Task added", "green");
     await addtask(user.user._id, { tasks, date });
     loadtask(user.user._id);
   };
@@ -49,16 +50,15 @@ function Alltask({
     setAlert("task have been deleted", "danger");
     await deletetasks(user.user._id, task._id);
     loadtask(user.user._id);
-    
   };
   const complerter = async (task) => {
-     setAlert("task have been", "green");
+    setAlert("task completed", "green");
     await iscompleted(user.user._id, task._id);
     loadtask(user.user._id);
   };
-    if (!iscurrent) {
-      return <Redirect to="/admin" />;
-    }
+  if (!iscurrent) {
+    return <Redirect to="/admin" />;
+  }
 
   return (
     <Fragment>
@@ -137,14 +137,13 @@ Alltask.propTypes = {
   deletetasks: PropTypes.func.isRequired,
   currentfail: PropTypes.func.isRequired,
   iscompleted: PropTypes.func.isRequired,
-  setAlert:PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   user: state.user,
   task: state.task,
   auth: state.auth,
-  
 });
 
 export default connect(mapStateToProps, {
@@ -153,5 +152,5 @@ export default connect(mapStateToProps, {
   deletetasks,
   iscompleted,
   setAlert,
-  currentfail
+  currentfail,
 })(Alltask);
