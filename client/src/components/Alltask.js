@@ -46,11 +46,13 @@ function Alltask({
     loadtask(user.user._id);
   };
   const deletert = async (task) => {
+    setAlert("task have been deleted", "danger");
     await deletetasks(user.user._id, task._id);
     loadtask(user.user._id);
-    setAlert("task have been deleted", "danger");
+    
   };
   const complerter = async (task) => {
+     setAlert("task have been", "green");
     await iscompleted(user.user._id, task._id);
     loadtask(user.user._id);
   };
