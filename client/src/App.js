@@ -13,6 +13,8 @@ import { loadUser } from "./actions/user";
 import React, { useEffect } from "react";
 import Profile from "./components/Profile";
 import Admin from "./components/Admin";
+import Date from "./components/Date";
+
 
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
             <Route exact path="/register" component={Progress} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/alltasks" component={Alltasks} />
+            <Route exact path="/date" component={Date} />
             <Route exact path="/progress" component={Progress} />
             <Route exact path="/admin" component={Admin} />
           </Switch>

@@ -51,7 +51,7 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: false,
-        user: null,
+        
       };
     case LOGIN_FAIL:
       return {
@@ -64,7 +64,7 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: false,
-        user: null,
+      
       };
 
     default:

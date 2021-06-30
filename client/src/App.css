@@ -38,49 +38,42 @@ a {
 .taskname {
   transition-duration: 1;
 }
-.alert{
-    margin-bottom: 1rem ;
-    font-family: "Raleway", sans-serif;
-
-    color: white;
-    padding: .3rem 1rem  ;
-      font-size: .6rem;
-
-}
-.alert-danger{
-  margin-bottom: 1rem ;
-  
+.alert {
   margin-bottom: 1rem;
-    font-family: "Raleway", sans-serif;
-    color: white;
-    background: #f80101;
-    padding: .2rem 1rem  ;
-      font-size: .8rem;
-      
+  font-family: "Raleway", sans-serif;
 
+  color: white;
+  padding: 0.3rem 1rem;
+  font-size: 0.6rem;
+}
+.alert-danger {
+  margin-bottom: 1rem;
+
+  margin-bottom: 1rem;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  background: #f80101;
+  padding: 0.2rem 1rem;
+  font-size: 0.8rem;
 }
 
-.alert-green{
-  margin-bottom: 1rem ;
-    
-  
-    font-family: "Raleway", sans-serif;
+.alert-green {
+  margin-bottom: 1rem;
 
-    color: white;
-    background: #1aa260;
-    padding: .2rem 1rem  ;
-      font-size: .8em;
+  font-family: "Raleway", sans-serif;
 
+  color: white;
+  background: #1aa260;
+  padding: 0.2rem 1rem;
+  font-size: 0.8em;
 }
-.Logout{
+.Logout {
   margin-top: 1rem;
- 
 }
 .completer {
   text-decoration: line-through !important;
   color: #1aa261 !important;
   transition-duration: 0.5s;
-
 }
 body {
   text-decoration: none;
@@ -174,6 +167,28 @@ input {
   padding: 2rem;
   border-radius: 8%;
   text-decoration: none;
+}
+.center {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+.center h1,i{
+  margin: .3rem;
+}
+.Admin{
+  margin-top: 3rem;
+  margin-bottom: -6rem;
+  justify-content: center;
+  text-align: center;
+
+  
+}
+.Admin h1{
+  margin: .3rem;
+}
+.chart {
+  margin: 0.5rem;
 }
 .profile h1 {
   padding: 0.5rem;

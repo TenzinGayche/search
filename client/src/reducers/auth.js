@@ -39,7 +39,7 @@ function registerReducer(state = initialState, action) {
       return {
         ...state,
         iscurrent: false,
-        user: null,
+      
       };
     case ADD_FAIL:
       return { ...state, user: null };

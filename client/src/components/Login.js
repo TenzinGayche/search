@@ -17,10 +17,13 @@ function Login({
   isadmins,
   setAlert,
 }) {
-  const [formData, setFormData] = useState({
-    user: users.user.user,
-    password: "",
-  });
+  useEffect(() => {
+   
+  }, [])
+const [formData, setFormData] = useState({
+  user: users.user.user,
+  password: "",
+});
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -31,6 +34,12 @@ function Login({
 
     console.log(users);
   };
+    
+    const onClicks = async () => {
+      await currentfail();
+
+    
+    };
   if (
     (users.user.user === "Amala" && users.isAuthenticated === true) ||
     (users.user.user === "Pala" && users.isAuthenticated === true)
@@ -49,7 +58,7 @@ function Login({
 
   return (
     <Fragment>
-      {users.user === false ? (
+      {users.user === null ? (
         <div class="container">
           <Spinner />
         </div>
@@ -80,8 +89,8 @@ function Login({
                   onClick={() => onClick()}
                 ></i>
               </div>
-              <Link to="/" class="white container">
-                Home
+              <Link to="/" class="container" onClick={() => onClicks()}>
+                <h3 className="white">Home</h3>
               </Link>
             </div>
           </section>

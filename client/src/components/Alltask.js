@@ -3,12 +3,11 @@ import React, { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
-import { currentuser, login, addtask,  } from "../actions/current";
+import { currentuser, login, addtask, currentfail,  } from "../actions/current";
 import { deletetasks, loadtask, iscompleted } from "../actions/task";
 import { loadUser } from "../actions/user";
 import Spinner from "./Spinner";
 import { setAlert } from "../actions/alert";
-
 function Alltask({
   user,
   task,
@@ -18,17 +17,12 @@ function Alltask({
   loadtask,
   deletetasks,
   setAlert,
+  currentfail,
+  auth: { iscurrent },
 }) {
-  useEffect( async() => {
+  useEffect(async () => {
     await loadtask(user.user._id);
-    const  today = await task.tasks.filter(
-        (task) => task.date.day === `${dates}` && task.date.month === `${Month}`
-      )
-    setAlert(
-     `You had listed ${today.length} tasks`,"green"
-    );
   }, []);
-
 
   const Month = new Date().getMonth();
   const dates = new Date().getDate();
@@ -54,12 +48,15 @@ function Alltask({
   const deletert = async (task) => {
     await deletetasks(user.user._id, task._id);
     loadtask(user.user._id);
-    setAlert("task have been deleted","danger")
+    setAlert("task have been deleted", "danger");
   };
   const complerter = async (task) => {
     await iscompleted(user.user._id, task._id);
     loadtask(user.user._id);
   };
+    if (!iscurrent) {
+      return <Redirect to="/admin" />;
+    }
 
   return (
     <Fragment>
@@ -116,6 +113,15 @@ function Alltask({
               </div>
             ))}
           </section>
+          <span class={`container ${isadmin ? "" : `inactive`} `}>
+            <i
+              class={`fas fa-sign-out-alt white`}
+              onClick={() => currentfail()}
+            >
+              &nbsp; Home
+            </i>
+            &nbsp;&nbsp;
+          </span>
         </Fragment>
       )}
     </Fragment>
@@ -127,6 +133,7 @@ Alltask.propTypes = {
   loadtask: PropTypes.node.isRequired,
   task: PropTypes.object.isRequired,
   deletetasks: PropTypes.func.isRequired,
+  currentfail: PropTypes.func.isRequired,
   iscompleted: PropTypes.func.isRequired,
   setAlert:PropTypes.func.isRequired,
 };
@@ -134,6 +141,7 @@ Alltask.propTypes = {
 const mapStateToProps = (state) => ({
   user: state.user,
   task: state.task,
+  auth: state.auth,
   
 });
 
@@ -143,4 +151,5 @@ export default connect(mapStateToProps, {
   deletetasks,
   iscompleted,
   setAlert,
+  currentfail
 })(Alltask);

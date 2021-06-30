@@ -15,6 +15,7 @@ export const ISDELETED = "ISDELETED";
 export const ADMIN = "ADMIN";;
 export const ADMIN_NOT = "ADMIN_NOT";
 export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOAD_FAIL = "LOAD_FAIL";
 
 
 

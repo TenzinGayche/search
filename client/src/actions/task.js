@@ -12,6 +12,7 @@ import {
   ISDELETED,
   ADMIN,
   ADMIN_NOT,
+  LOAD_FAIL
 } from "../actions/types";
 
 export const loadtask = (id) => async (dispatch) => {
@@ -33,7 +34,7 @@ export const loadtask = (id) => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: ADD_FAIL,
+      type: LOAD_FAIL,
     });
 
     console.log(err);
@@ -100,3 +101,4 @@ export const notadmins = () => async (dispatch) => {
     console.log(err);
   }
 };
+

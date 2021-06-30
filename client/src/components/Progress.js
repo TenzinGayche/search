@@ -7,6 +7,7 @@ import { currentuser, login, addtask } from "../actions/current";
 import { deletetasks, loadtask } from "../actions/task";
 import { loadUser } from "../actions/user";
 import Spinner from "./Spinner";
+import { Line } from "react-chartjs-2";
 function Progress({ user, task, addtask, loadtask, deletetasks }) {
   useEffect(() => {
     loadtask(user.user._id);
@@ -214,7 +215,7 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
                 !task.iscompleted ? (
                   <div class=" progress progress-tasks-input ">
                     <p class="white">{task.tasks} </p>
-                    {incompleted++}
+                    {(incompleted = incompleted - 2)}
                     <span class="btn">
                       <a href="">
                         <i class="fas fa-times-circle red "></i>
@@ -225,7 +226,45 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
               )}
             </div>
             <div class="Points yellow">
-              <p>{`${Math.trunc((completed / (completed+incompleted)) * 10)} points`}</p>
+              <p>
+                {`${
+                  completed + incompleted <= 0 ? "0" : completed + incompleted
+                } points`}
+              </p>
+            </div>
+            <div className="chart">
+              {}
+              <Line
+                data={{
+                  labels: days,
+                  datasets: [
+                    {
+                      label: "# of Votes",
+                      data: {},
+                      backgroundColor: [
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                        "rgba(255, 206, 86, 0.2)",
+                        "rgba(75, 192, 192, 0.2)",
+                        "rgba(153, 102, 255, 0.2)",
+                        "rgba(255, 159, 64, 0.2)",
+                      ],
+                      borderColor: [
+                        "rgba(255, 99, 132, 1)",
+                        "rgba(54, 162, 235, 1)",
+                        "rgba(255, 206, 86, 1)",
+                        "rgba(75, 192, 192, 1)",
+                        "rgba(153, 102, 255, 1)",
+                        "rgba(255, 159, 64, 1)",
+                      ],
+                      borderWidth: 1,
+                    },
+                  ],
+                }}
+                height={40}
+                width={60}
+                options={{}}
+              />
             </div>
           </section>
         </Fragment>

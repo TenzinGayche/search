@@ -18,8 +18,6 @@ export const loadUser = () => async (dispatch) => {
     const config = {
       "Content-Type": "application/json",
     };
-
-
     const res = await axios.get("/api/users", {}, config);
     console.log("actions");
     dispatch({

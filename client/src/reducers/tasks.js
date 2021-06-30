@@ -10,7 +10,9 @@ import {
   LOADTASK,
   ADMIN,
   ISDELETED,
-  ADMIN_NOT
+  ADMIN_NOT,
+  LOAD_FAIL
+
 } from "../actions/types";
 
 const initialState = {
@@ -26,6 +28,13 @@ function userReducer(state = initialState, action) {
         ...state,
 
         tasks: payload,
+      };
+    case LOAD_FAIL:
+      return {
+        ...state,
+        
+
+        tasks: null,
       };
     case ISDELETED:
       return {

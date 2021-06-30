@@ -9,28 +9,43 @@ import PropTypes from "prop-types";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Spinner from "./Spinner";
-import { currentfail, currentuser } from "../actions/current";
-import { isadmins, loadtask } from "../actions/task";
+import { currentfail, currentuser, login } from "../actions/current";
+import { isadmins, loadtask, notadmins } from "../actions/task";
+import { setAlert } from "../actions/alert";
 
 
-function Admin({ auth,auth:{iscurrent},task:{isadmin}, task,currentfail,isadmins, loadUser, currentuser, isCurrent }) {
-  useEffect( () => {
-    loadUser()
-    loadtask()
+function Admin({
+  auth,
+  auth: { iscurrent },
+  task: { isadmin },
+  setAlert,task,
+  currentfail,
+  isadmins,
+  notadmins,
+  loadUser,
+  currentuser,
+  isCurrent,
+  login,
+}) {
+  useEffect(() => {
+    loadUser();
+    loadtask();
   }, []);
   const onClick = (user) => {
     currentuser(user);
     isCurrent();
-    isadmins()
+    isadmins();
   };
-   if (!isadmin) {
-     return <Redirect to="/" />;
-   }
-   if (iscurrent) {
-     return <Redirect to="/profile" />;
-   }
-
- 
+  const onClicks = (user) => {
+    notadmins();
+    setAlert("User is now Logged out","green");
+  };
+  if (!isadmin) {
+    return <Redirect to="/" />;
+  }
+  if (iscurrent) {
+    return <Redirect to="/alltasks" />;
+  }
 
   return (
     <Fragment>
@@ -40,7 +55,11 @@ function Admin({ auth,auth:{iscurrent},task:{isadmin}, task,currentfail,isadmins
         </div>
       ) : (
         <Fragment>
+          <div className="Admin">
+            <h3 class="white">Admin</h3>
+          </div>
           <div class="container">
+           
             <div class="users">
               {auth.user.map((user) => (
                 <div
@@ -58,6 +77,9 @@ function Admin({ auth,auth:{iscurrent},task:{isadmin}, task,currentfail,isadmins
               ))}
             </div>
           </div>
+          <div className="center" onClick={() => onClicks()}>
+            <i class="fas fa-sign-out-alt white"></i> <h3 className="white" >Logout</h3>
+          </div>
         </Fragment>
       )}
     </Fragment>
@@ -67,14 +89,26 @@ Admin.propTypes = {
   loadUser: PropTypes.func.isRequired,
   currentuser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  currentfail:PropTypes.func.isRequired,
-  isadmins:PropTypes.func.isRequired,
+  currentfail: PropTypes.func.isRequired,
+  isadmins: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  notadmins: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
   user: state.user,
   task:state.task,
+
 });
-export default connect(mapStateToProps, { loadUser, currentuser,currentfail,isadmins, isCurrent,loadtask })(Admin
-);
+export default connect(mapStateToProps, {
+  setAlert,loadUser,
+  currentuser,
+  currentfail,
+  isadmins,
+  notadmins,
+  isCurrent,
+  loadtask,
+  login,
+})(Admin);
