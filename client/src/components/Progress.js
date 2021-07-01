@@ -4,19 +4,20 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
 import { currentuser, login, addtask } from "../actions/current";
-import { deletetasks, loadtask } from "../actions/task";
+import { deletetasks, iscompleted, loadtask } from "../actions/task";
 import { loadUser } from "../actions/user";
 import Spinner from "./Spinner";
 import { Line } from "react-chartjs-2";
 function Progress({ user, task, addtask, loadtask, deletetasks }) {
   useEffect(() => {
     loadtask(user.user._id);
-  },[]);
+  }, []);
+
   const d = new Date();
   var monther = d.getMonth();
   var dayers = d.getMonth();
   var datet = d.getDate();
-  var month = dayers;
+  var month = d.getMonth();
   var userss = [];
   const months = [
     "January",
@@ -34,42 +35,42 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
   ];
   var [state, setstate] = useState(month);
   const [date, setdate] = useState(datet);
- var completed=0;
-  var incompleted=0;
-  
- 
-  
-    //   while(j<=i)
-    //   {
-    // switch (months) {
-    //   case "January":
-    //     return (dayers = 31);
-    //   case "February":
-    //     return (dayers = 28);
-    //   case "March":
-    //     return (dayers = 31);
-    //   case "April":
-    //     return (dayers = 30);
-    //   case "May":
-    //     return (dayers = 31);
-    //   case "June":
-    //     return (dayers= 30);
-    //   case "July":
-    //     return (dayers = 31);
-    //   case "August":
-    //     return (dayers = 31);
-    //   case "September":
-    //     return (dayers = 30);
-    //   case "October":
-    //     return (dayers = 31);
-    //   case "November":
-    //     return (dayers = 30);
-    //   case "December":
-    //     return (dayers = 31);
+  var completed = 0;
+  var incompleted = 0;
+  var total = [dayers];
 
-    // }
-    // j++}
-    dayers = state;
+  //   while(j<=i)
+  //   {
+  // switch (months) {
+  //   case "January":
+  //     return (dayers = 31);
+  //   case "February":
+  //     return (dayers = 28);
+  //   case "March":
+  //     return (dayers = 31);
+  //   case "April":
+  //     return (dayers = 30);
+  //   case "May":
+  //     return (dayers = 31);
+  //   case "June":
+  //     return (dayers= 30);
+  //   case "July":
+  //     return (dayers = 31);
+  //   case "August":
+  //     return (dayers = 31);
+  //   case "September":
+  //     return (dayers = 30);
+  //   case "October":
+  //     return (dayers = 31);
+  //   case "November":
+  //     return (dayers = 30);
+  //   case "December":
+  //     return (dayers = 31);
+
+  // }
+  // j++}
+
+  dayers = state;
   if (dayers === 0) {
     dayers = 31;
   }
@@ -113,12 +114,15 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
     dayers = 31;
   }
 
-  var da = 1;
+  var da = 0;
   var days = [];
-  while (da <= dayers) {
-    days[da] = da;
+  while (da < dayers) {
+    days[da] = da + 1;
     da++;
   }
+
+
+
   return (
     <Fragment>
       {task.tasks === null ? (
@@ -132,7 +136,7 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
               (task) =>
                 task.date.day === `${date}` && task.date.month === `${state}`
             )),
-            console.log(userss))
+            console.log(""))
           }
           <section class="progress-container">
             <div className="calender">
@@ -232,47 +236,14 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
                 } points`}
               </p>
             </div>
-            <div className="chart">
-              {}
-              <Line
-                data={{
-                  labels: days,
-                  datasets: [
-                    {
-                      label: "# of Votes",
-                      data: {},
-                      backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                      ],
-                      borderColor: [
-                        "rgba(255, 99, 132, 1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                      ],
-                      borderWidth: 1,
-                    },
-                  ],
-                }}
-                height={40}
-                width={60}
-                options={{}}
-              />
-            </div>
+          
+              
           </section>
         </Fragment>
       )}
     </Fragment>
   );
 }
-
 
 Progress.propTypes = {
   addtask: PropTypes.func.isRequired,

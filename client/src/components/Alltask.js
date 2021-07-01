@@ -115,14 +115,14 @@ function Alltask({
               </div>
             ))}
           </section>
-          <span class={`container ${isadmin ? "" : `inactive`} `}>
+          <span class={`center ${isadmin ? "" : `inactive`} `}>
             <i
               class={`fas fa-sign-out-alt white`}
               onClick={() => currentfail()}
             >
-              &nbsp; Home
+              
             </i>
-            &nbsp;&nbsp;
+            <h3 className="white">Home</h3>
           </span>
         </Fragment>
       )}

@@ -27,6 +27,7 @@ function App() {
       <Router>
         <Fragment>
           <Navbar />
+
           <Route exact path="/" component={Home} />
 
           <Switch>

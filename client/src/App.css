@@ -69,6 +69,7 @@ a {
 }
 .Logout {
   margin-top: 1rem;
+  
 }
 .completer {
   text-decoration: line-through !important;
@@ -172,12 +173,14 @@ input {
   justify-content: center;
   text-align: center;
   display: flex;
+  margin-top: 1rem;
+
 }
 .center h1,i{
   margin: .3rem;
 }
 .Admin{
-  margin-top: 3rem;
+  margin-top: 4rem;
   margin-bottom: -6rem;
   justify-content: center;
   text-align: center;
