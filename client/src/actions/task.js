@@ -1,13 +1,8 @@
 import axios from "axios";
 import {
-  CURRENT_USER,
-  CURRENT_FAIL,
-  LOGIN,
-  LOGOUT,
-  AUTH_ERROR,
+
   ISCOMPLETED,
-  ADD_TASK,
-  ADD_FAIL,
+
   LOADTASK,
   ISDELETED,
   ADMIN,
@@ -22,7 +17,7 @@ export const loadtask = (id) => async (dispatch) => {
     };
    
     const res = await axios.get(
-      `/api/users/tasks/${id}`,
+      `api/users/tasks/${id}`,
       {},
       config
     );
@@ -47,7 +42,7 @@ export const deletetasks = (id, task) => async (dispatch) => {
     };
 
     const res = await axios.delete(
-      `/api/users/${id}/task/${task}`,
+      `api/users/${id}/task/${task}`,
       {},
       config
     );
@@ -67,7 +62,7 @@ export const iscompleted = (id, comment) => async (dispatch) => {
     };
 
     const res = await axios.put(
-      `/api/users/${id}/task/${comment}`,
+      `api/users/${id}/task/${comment}`,
       {},
       config
     );

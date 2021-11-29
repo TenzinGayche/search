@@ -2,10 +2,10 @@ import React, { Fragment, useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link, Redirect } from "react-router-dom";
-import { currentuser, login, addtask, currentfail } from "../actions/current";
+import { Redirect } from "react-router-dom";
+import { addtask, currentfail } from "../actions/current";
 import { deletetasks, loadtask, iscompleted } from "../actions/task";
-import { loadUser } from "../actions/user";
+
 import Spinner from "./Spinner";
 import { setAlert } from "../actions/alert";
 function Alltask({

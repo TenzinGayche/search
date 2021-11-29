@@ -1,15 +1,10 @@
 import {
-  REGISTER_SUCCESFUL,
-  REGISTER_FAIL,
+  
   AUTH_ERROR,
   LOAD_USER,
   ISCURRENT,
   ISCURRENT_FAIL,
-  CURRENT_USER,
-  LOG_ERROR,
-  LOGIN,
-  LOGOUT,
-  LOADTASK,
+
 } from "../actions/types";
 import axios from "axios";
 export const loadUser = () => async (dispatch) => {
@@ -18,7 +13,7 @@ export const loadUser = () => async (dispatch) => {
     const config = {
       "Content-Type": "application/json",
     };
-    const res = await axios.get("/api/users", {}, config);
+    const res = await axios.get("api/users", {}, config);
     console.log("actions");
     dispatch({
       type: LOAD_USER,

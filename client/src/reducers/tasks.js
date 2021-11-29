@@ -1,23 +1,14 @@
 import {
-  CURRENT_USER,
-  CURRENT_FAIL,
-  LOGIN,
-  LOGOUT,
-  ADD_TASK,
-  ADD_FAIL,
-  ISCURRENT,
-  ISCOMPLETED,
   LOADTASK,
   ADMIN,
   ISDELETED,
   ADMIN_NOT,
-  LOAD_FAIL
-
+  LOAD_FAIL,
 } from "../actions/types";
 
 const initialState = {
   tasks: [],
-  isadmin:false
+  isadmin: false,
 };
 function userReducer(state = initialState, action) {
   const { type, payload } = action;
@@ -32,7 +23,6 @@ function userReducer(state = initialState, action) {
     case LOAD_FAIL:
       return {
         ...state,
-        
 
         tasks: null,
       };

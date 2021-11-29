@@ -1,11 +1,16 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link, Redirect } from "react-router-dom";
-import { LOGOUT } from "../actions/types";
+import { Link } from "react-router-dom";
+
 import { currentfail } from "../actions/current";
 
-function Navbar({ user, user: { isAuthenticated }, currentfail,task :{isadmin}}) {
+function Navbar({
+  user,
+  user: { isAuthenticated },
+  currentfail,
+  task: { isadmin },
+}) {
   return (
     <Fragment>
       {isAuthenticated === true ? (
@@ -20,10 +25,7 @@ function Navbar({ user, user: { isAuthenticated }, currentfail,task :{isadmin}})
             <li class="navbar-items">
               <Link to="/profile">
                 <img
-                  src={
-                    require( `./img/${user.user.user}.jpeg`
-                     ).default
-                  }
+                  src={require(`./img/${user.user.user}.jpeg`).default}
                   alt=""
                 />
               </Link>

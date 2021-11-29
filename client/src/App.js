@@ -9,8 +9,8 @@ import Alltasks from "./components/Alltask";
 import { Fragment } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
-import { loadUser } from "./actions/user";
-import React, { useEffect } from "react";
+
+import React from "react";
 import Profile from "./components/Profile";
 import Admin from "./components/Admin";
 import Date from "./components/Date";

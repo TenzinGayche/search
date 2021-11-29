@@ -11,7 +11,7 @@ import { setAlert } from "../actions/alert";
 function Profile({
   user,
   task: { isadmin },
-  user: { iscurrent },
+ 
   logout,
   currentfail,
   notadmins,

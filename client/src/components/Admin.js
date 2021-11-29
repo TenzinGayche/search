@@ -1,25 +1,21 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
-import axios from "axios";
-import store from "../store";
+import { Redirect } from "react-router-dom";
 
 import { loadUser, isCurrent } from "../actions/user";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Spinner from "./Spinner";
 import { currentfail, currentuser, login } from "../actions/current";
 import { isadmins, loadtask, notadmins } from "../actions/task";
 import { setAlert } from "../actions/alert";
 
-
 function Admin({
   auth,
   auth: { iscurrent },
   task: { isadmin },
-  setAlert,task,
-  currentfail,
+  setAlert,
+
   isadmins,
   notadmins,
   loadUser,
@@ -38,7 +34,7 @@ function Admin({
   };
   const onClicks = (user) => {
     notadmins();
-    setAlert("User is now Logged out","green");
+    setAlert("User is now Logged out", "green");
   };
   if (!isadmin) {
     return <Redirect to="/" />;
@@ -59,7 +55,6 @@ function Admin({
             <h3 class="white">Admin</h3>
           </div>
           <div class="container">
-           
             <div class="users">
               {auth.user.map((user) => (
                 <div
@@ -78,7 +73,8 @@ function Admin({
             </div>
           </div>
           <div className="center" onClick={() => onClicks()}>
-            <i class="fas fa-sign-out-alt white"></i> <h3 className="white" >Logout</h3>
+            <i class="fas fa-sign-out-alt white"></i>{" "}
+            <h3 className="white">Logout</h3>
           </div>
         </Fragment>
       )}
@@ -99,11 +95,11 @@ Admin.propTypes = {
 const mapStateToProps = (state) => ({
   auth: state.auth,
   user: state.user,
-  task:state.task,
-
+  task: state.task,
 });
 export default connect(mapStateToProps, {
-  setAlert,loadUser,
+  setAlert,
+  loadUser,
   currentuser,
   currentfail,
   isadmins,

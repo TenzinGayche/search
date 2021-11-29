@@ -3,6 +3,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const User = require("./models/User");
 const path = require("path");
+const Profile = require("./models/Profile");
 connectDB();
 
 const app = express();
@@ -50,6 +51,25 @@ app.get("/api/users/tasks/:id", async (req, res) => {
     console.error(err.message);
 
     res.status(404).send("No tasks");
+  }
+});
+app.put("/api/users/:id/task/:tid", async (req, res) => {
+  try {
+    const users = await User.findOne({ _id: req.params.id }).select(
+      "-password"
+    );
+
+    const task = await users.alltasks.find(
+      (alltasks) => alltasks.id === req.params.tid
+    );
+
+    task.iscompleted = !task.iscompleted;
+    console.log(task);
+
+    await users.save();
+    res.json(users);
+  } catch (err) {
+    console.error(err.message);
   }
 });
 app.put("/api/users/:id/task/:tid", async (req, res) => {
@@ -126,6 +146,72 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-const PORT = process.env.PORT || 5000;
+
+//---------------Profile--------------------
+
+app.get("/api/profile", async (req, res) => {
+  profile = await Profile.find();
+  res.json(profile);
+});
+
+app.post("/api/profile", async (req, res) => {
+  const { user } = req.body;
+  try {
+    const profile = new Profile({
+      user,
+    });
+
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+app.post("/api/profile/:id", async (req, res) => {
+  const { user } = req.body;
+  try {
+    const profile = new Profile({
+      user,
+    });
+
+    await profile.save();
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+app.put("/api/profile/:id", async (req, res) => {
+  try {
+    const profiles = await Profile.findById(req.params.id);
+
+    const {
+      completedtasks,
+      date,
+      incompletedtask,
+      alltasks,
+      year,
+      month,
+      day,
+    } = req.body;
+
+    const userprofile = await profiles.tasks.findOne({
+      date: {
+        year: year,
+        month: month,
+        day: day,
+      },
+    });
+    if (userprofile.isempty()) {
+      res.json({ msg: "Success" });
+    }
+
+    res.json({ msg: "Success" });
+  } catch (err) {
+    console.error(err.message);
+
+    res.status(500).send("Server Error");
+  }
+});
+const PORT = process.env.PORT || 6000;
 
 app.listen(PORT, () => console.log(`Starting in port ${PORT}`));

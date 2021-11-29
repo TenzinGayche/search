@@ -1,16 +1,12 @@
 import {
-
-  
   CURRENT_USER,
   CURRENT_FAIL,
   LOGIN,
   LOGOUT,
   ADD_TASK,
-  ADD_FAIL,
-  ISCURRENT,
   ISCOMPLETED,
   LOADTASK,
-  LOGIN_FAIL
+  LOGIN_FAIL,
 } from "../actions/types";
 
 const initialState = {
@@ -51,20 +47,17 @@ function userReducer(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: false,
-        
       };
     case LOGIN_FAIL:
       return {
         ...state,
         isAuthenticated: false,
-       
       };
 
     case CURRENT_FAIL:
       return {
         ...state,
         isAuthenticated: false,
-      
       };
 
     default:

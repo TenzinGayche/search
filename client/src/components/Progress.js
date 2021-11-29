@@ -2,10 +2,10 @@ import React, { Fragment, useState, useEffect } from "react";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link, Redirect } from "react-router-dom";
-import { currentuser, login, addtask } from "../actions/current";
-import { deletetasks, iscompleted, loadtask } from "../actions/task";
-import { loadUser } from "../actions/user";
+import { Link } from "react-router-dom";
+import { addtask } from "../actions/current";
+import { deletetasks, loadtask } from "../actions/task";
+
 import Spinner from "./Spinner";
 import { Line } from "react-chartjs-2";
 function Progress({ user, task, addtask, loadtask, deletetasks }) {
@@ -37,38 +37,7 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
   const [date, setdate] = useState(datet);
   var completed = 0;
   var incompleted = 0;
-  var total = [dayers];
 
-  //   while(j<=i)
-  //   {
-  // switch (months) {
-  //   case "January":
-  //     return (dayers = 31);
-  //   case "February":
-  //     return (dayers = 28);
-  //   case "March":
-  //     return (dayers = 31);
-  //   case "April":
-  //     return (dayers = 30);
-  //   case "May":
-  //     return (dayers = 31);
-  //   case "June":
-  //     return (dayers= 30);
-  //   case "July":
-  //     return (dayers = 31);
-  //   case "August":
-  //     return (dayers = 31);
-  //   case "September":
-  //     return (dayers = 30);
-  //   case "October":
-  //     return (dayers = 31);
-  //   case "November":
-  //     return (dayers = 30);
-  //   case "December":
-  //     return (dayers = 31);
-
-  // }
-  // j++}
 
   dayers = state;
   if (dayers === 0) {
@@ -181,7 +150,7 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
             <div class="tittle">
               <h1 class="progress progress-tasks-input green">
                 Completed task
-                <span class="btn">
+                <span class="">
                   <a href="">
                     <i class="fas fa-check-circle green"></i>
                   </a>
@@ -196,7 +165,7 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
                     {completed++}
                     <span class="btn">
                       <a href="">
-                        <i class="fas fa-check-circle green"></i>
+                       
                       </a>
                     </span>
                   </div>
@@ -219,10 +188,10 @@ function Progress({ user, task, addtask, loadtask, deletetasks }) {
                 !task.iscompleted ? (
                   <div class=" progress progress-tasks-input ">
                     <p class="white">{task.tasks} </p>
-                    {(incompleted = incompleted - 2)}
+                    {(incompleted = incompleted - 1)}
                     <span class="btn">
                       <a href="">
-                        <i class="fas fa-times-circle red "></i>
+                      
                       </a>
                     </span>
                   </div>

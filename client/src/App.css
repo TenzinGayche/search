@@ -81,7 +81,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: #000;
+  background: rgb(0, 0, 0);
 }
 .btn {
   color: white;
@@ -164,7 +164,7 @@ input {
   text-decoration: none;
 }
 .profile .tasks-box {
-  background-color: #202020;
+  background:linear-gradient( to right bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.15));
   padding: 2rem;
   border-radius: 8%;
   text-decoration: none;
@@ -366,7 +366,7 @@ input {
 .calender {
   margin: 3rem;
   padding: 1rem;
-  background: #302f2f;
+  background:linear-gradient( to right bottom,rgba(255,255,255,0.1),rgba(255,255,255,0.2));
   margin-top: -2rem;
   border-radius: 3%;
   color: #ecf0f1;
@@ -389,11 +389,15 @@ input {
 }
 .active {
   border-radius: 5px;
+  background-color: #f4b400;
+}
+.check{
+  border-radius: 5px;
   background-color: #1aa260;
 }
 .calender li:hover {
   border-radius: 5px;
-  background-color: #c9c5c5;
+  background:linear-gradient( to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.4));
   color: #000000;
 }
 .navbar {

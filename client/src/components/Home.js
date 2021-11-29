@@ -1,13 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link,Redirect } from "react-router-dom";
-import axios from "axios";
-import store from "../store";
 
 import { loadUser, isCurrent } from "../actions/user";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import Spinner from "./Spinner";
 import { currentuser } from "../actions/current";
 

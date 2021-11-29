@@ -4,13 +4,10 @@ import {
   CURRENT_FAIL,
   LOGIN,
   LOGOUT,
-  AUTH_ERROR,
-  ISCOMPLETED,
+
   ADD_TASK,
   ADD_FAIL,
-  SET_ALERT,
-  LOADTASK,
-  ISCURRENT_FAIL,
+
   LOGIN_FAIL,
 } from "../actions/types";
 import { setAlert } from "./alert";
@@ -39,7 +36,7 @@ export const login = (data) => async (dispatch) => {
     console.log(data);
 
     const res = await axios.post(
-      "/api/users/auth",
+      "api/users/auth",
       data,
       config
     );
@@ -94,7 +91,7 @@ export const addtask = (id,data) => async (dispatch) => {
     };
 console.log(id);
     const res = await axios.put(
-      `/api/users/tasks/${id}`,
+      `api/users/tasks/${id}`,
       data,
       config
     );

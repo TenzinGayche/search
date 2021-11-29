@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { loadUser, isCurrent } from "../actions/user";
+
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
